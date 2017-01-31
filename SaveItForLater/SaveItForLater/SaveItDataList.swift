@@ -39,6 +39,7 @@ class SaveItDataList: NSObject {
                 // kill the old array, append the new items and reload
                 self.listItems.removeAll()
                 
+                var notificationsCount: Int = 0
                 for (key, dict) in postDict {
                     self.listItems.append(SaveItData(url: dict["url"] as! String,
                                                      title: dict["title"] as! String,
@@ -47,6 +48,12 @@ class SaveItDataList: NSObject {
                                                      savedAt: dict["savedAt"] as! String,
                                                      read: dict["read"] as! Bool,
                                                      id: key))
+                    if dict["read"] as! Bool == false {
+                        notificationsCount += 1
+                    }
+                    
+                    // update the app badge with unread notification count
+                    UIApplication.shared.applicationIconBadgeNumber = notificationsCount
                 }
         
                 // if the delegate was set, let them know we have new data to show

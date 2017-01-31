@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
+        
+        // register for notifications (badges for now, implement push notification after)
+        let settings = UIUserNotificationSettings(types: [.badge], categories: nil)
+        
 
         return true
     }
