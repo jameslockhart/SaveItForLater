@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,8 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         
         // register for notifications (badges for now, implement push notification after)
-        let settings = UIUserNotificationSettings(types: [.badge], categories: nil)
-        
+        UNUserNotificationCenter.current().requestAuthorization(options: [/*.alert, .sound,*/ .badge]) { (granted: Bool, error: Error?) in
+            
+        }
 
         return true
     }
