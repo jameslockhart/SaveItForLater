@@ -1,8 +1,10 @@
 # SaveItForLater
 
-iOS that syncs between firebase to display a list of links
+iOS app written with swift that syncs with a firebase datastore to display a list of links saved from the save it for later google chrome extension.
 
-Currently only opens the webpage (If the app is installed it will push you into the app with most apps. More support coming)
+Currently only opens the webpage. If the app is installed, Youtube for example,  it will push you into the app and video. More support coming to directly open the application via app links
+
+Support coming for sharing from apps to SaveIt
 
 To build:
 1] Run pod install and open the xcworkspace file
